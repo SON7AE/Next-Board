@@ -1,0 +1,100 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/components/common/calendar/LabelCalendar.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.LabelCalendar_container__WnaRX {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.LabelCalendar_container__label__SlGWN {
+  color: #6d6d6d;
+}
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/app/create/page.module.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.page_container__UU7jI {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 920px;
+  height: 100%;
+  background-color: #f9f9f9;
+  border-right: 1px solid #e6e6e6;
+}
+.page_container__header__DB2oJ {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+  background-color: #ffffff;
+}
+.page_container__header__contents__m0F3I {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 28px;
+  margin-top: 68px;
+}
+.page_container__header__contents__m0F3I .page_input__ZYb69 {
+  font-size: 36px;
+  font-weight: 700;
+  outline: none;
+}
+.page_container__header__contents__m0F3I .page_input__ZYb69::placeholder {
+  color: #c4c4c4;
+}
+.page_container__header__contents__m0F3I .page_progressBar__7AYZL {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin: 8px 0 16px 0;
+}
+.page_container__header__contents__m0F3I .page_progressBar__status__obDpq {
+  color: #6d6d6d;
+}
+.page_container__header__contents__m0F3I .page_calendarBox__AMEMM {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.page_container__header__contents__m0F3I .page_calendarBox__calendar__8UVXT {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.page_container__body__ykzLX {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 250px);
+}
+.page_container__body__infoBox__o3WSD {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page_container__body__infoBox__o3WSD .page_title__TplOy {
+  font-size: 24px;
+  font-weight: 700;
+  color: #454545;
+}
+.page_container__body__infoBox__o3WSD .page_subTitle__GKw73 {
+  margin: 14px 0 28px 0;
+  font-size: 18px;
+  color: #454545;
+}
+.page_container__body__infoBox__o3WSD .page_button__aK5dS {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
