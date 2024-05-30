@@ -925,6 +925,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-\[220px\] {
+  width: 220px;
+}
 .max-w-fit {
   max-width: fit-content;
 }
