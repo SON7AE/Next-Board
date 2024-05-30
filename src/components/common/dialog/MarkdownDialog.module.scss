@@ -1,0 +1,45 @@
+.dialog {
+    &__titleBox {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 45vw;
+
+        gap: 8px;
+
+        &__title {
+            font-weight: 500;
+            font-size: 24px;
+            color: #303030;
+        }
+    }
+    &__calendarBox {
+        display: flex;
+        align-items: center;
+
+        width: 45vw;
+
+        gap: 16px;
+        padding: 16px 0 20px 0;
+    }
+    &__line {
+        width: 45vw;
+        height: 1px;
+
+        background-color: #d7d7d7;
+    }
+    &__markdown {
+        width: 45vw;
+        height: 50vh;
+    }
+    &__buttonBox {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        width: 45vw;
+
+        gap: 16px;
+    }
+}

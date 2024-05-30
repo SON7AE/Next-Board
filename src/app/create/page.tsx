@@ -33,7 +33,7 @@ function CreatePage() {
                                 <LabelCalendar label="From" />
                                 <LabelCalendar label="To" />
                             </div>
-                            <Button variant="outline" className="w-[15%] border-orange-500 bg-orange-400 text-white hover:bg-orange-300">
+                            <Button variant="outline" className="w-[15%] border-orange-500 bg-orange-400 text-white">
                                 Add New Board
                             </Button>
                         </div>
