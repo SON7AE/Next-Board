@@ -7,7 +7,7 @@ import "@/styles/globals.css";
 
 const roboto = Roboto({
     subsets: ["latin"],
-    weight: ["400", "700"],
+    weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {

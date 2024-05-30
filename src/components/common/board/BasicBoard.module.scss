@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 20px;
+
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+
+        &__inputBox {
+            display: flex;
+            align-items: center;
+
+            gap: 16px;
+
+            .input {
+                outline: none;
+                border: none;
+
+                font-size: 24px;
+
+                &::placeholder {
+                    font-weight: 500;
+                    color: #bdbdbd;
+                }
+            }
+        }
+    }
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+
+        margin: 24px 0 14px 0;
+
+        &__calendarBox {
+            display: flex;
+            align-items: center;
+
+            gap: 16px;
+        }
+    }
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+
+        padding-top: 14px;
+
+        border-top: 1px solid #ededed;
+    }
+}
+.dialog {
+    &__titleBox {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 45vw;
+
+        gap: 8px;
+
+        &__title {
+            font-weight: 500;
+            font-size: 24px;
+            color: #303030;
+        }
+    }
+    &__calendarBox {
+        display: flex;
+        align-items: center;
+
+        width: 45vw;
+
+        gap: 16px;
+        padding: 16px 0 20px 0;
+    }
+    &__line {
+        width: 45vw;
+        height: 1px;
+
+        background-color: #d7d7d7;
+    }
+}
