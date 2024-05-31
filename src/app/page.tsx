@@ -1,8 +1,22 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import styles from "./page.module.scss";
+'use client'
+
+import { useRouter } from 'next/navigation'
+import { Button } from '@/components/ui/button'
+import styles from './page.module.scss'
 
 function Home() {
+    // const setNewView = async () => {
+    //     const { data, error } = await supabase.from('views').insert({
+    //         title: 'random name',
+    //     })
+
+    //     if (data) console.log(data)
+    //     if (error) console.log(error)
+    // }
+    // setNewView()
+
+    const router = useRouter()
+
     return (
         <div className={styles.container}>
             <div className={styles.container__onBoarding}>
@@ -12,12 +26,12 @@ function Home() {
                     <span>2. Add boards to page</span>
                 </div>
                 {/* 페이지 추가 버튼 */}
-                <Button asChild variant="outline" className="w-full bg-transparent text-orange-500 border-orange-400 hover:bg-orange-50 hover:text-orange-500">
-                    <Link href="/create">Add New Page</Link>
+                <Button variant='outline' className='w-full bg-transparent text-orange-500 border-orange-400 hover:bg-orange-50 hover:text-orange-500' onClick={() => router.push('/create')}>
+                    Add New Page
                 </Button>
             </div>
         </div>
-    );
+    )
 }
 
-export default Home;
+export default Home
