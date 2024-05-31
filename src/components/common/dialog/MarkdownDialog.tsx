@@ -4,6 +4,8 @@ import MDEditor from '@uiw/react-md-editor'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
+import { useToast } from '@/components/ui/use-toast'
+
 import LabelCalendar from '@/components/common/calendar/LabelCalendar'
 // CSS
 import styles from './MarkdownDialog.module.scss'
@@ -12,6 +14,7 @@ function MarkdownDialog() {
     const [contents, setContents] = useState<string | undefined>('**Hello world!!!**')
     const [startDate, setStartDate] = useState<Date | undefined>()
     const [endDate, setEndDate] = useState<Date | undefined>()
+    const { toast } = useToast()
 
     const setDate = (payload: { label: string; date: Date | undefined }) => {
         if (payload.label === 'From') setStartDate(payload.date)
@@ -31,7 +34,11 @@ function MarkdownDialog() {
             board_contents: params,
         })
 
+        if (error) console.log(error)
         if (status === 201) {
+            toast({
+                description: '작성한 데이터가 Supabase에 올바르게 저장되었습니다.',
+            })
         }
     }
 
