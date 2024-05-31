@@ -10,6 +10,13 @@ import styles from './page.module.scss'
 
 function CreatePage() {
     const [progress, setProgress] = useState(13)
+    const [startDate, setStartDate] = useState<Date | undefined>()
+    const [endDate, setEndDate] = useState<Date | undefined>()
+
+    const setDate = (payload: { label: string; date: Date | undefined }) => {
+        if (payload.label === 'From') setStartDate(payload.date)
+        else setEndDate(payload.date)
+    }
 
     useEffect(() => {
         const timer = setTimeout(() => setProgress(66), 500)
@@ -30,10 +37,10 @@ function CreatePage() {
                         <div className={styles.calendarBox}>
                             <div className={styles.calendarBox__calendar}>
                                 {/* 캘린더 UI */}
-                                <LabelCalendar label='From' />
-                                <LabelCalendar label='To' />
+                                <LabelCalendar label='From' handleDate={setDate} />
+                                <LabelCalendar label='To' handleDate={setDate} />
                             </div>
-                            <Button variant='outline' className='w-[15%] border-orange-500 bg-orange-400 text-white'>
+                            <Button variant='outline' className='w-[15%] border-orange-500 bg-orange-400 text-white hover:bg-oragne-400 hover:text-white'>
                                 Add New Board
                             </Button>
                         </div>

@@ -1,20 +1,30 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { format } from "date-fns";
-import { Calendar as CalendarIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import styles from "./LabelCalendar.module.scss";
+import { useEffect, useState } from 'react'
+import { format } from 'date-fns'
+import { Calendar as CalendarIcon } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import { Calendar } from '@/components/ui/calendar'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import styles from './LabelCalendar.module.scss'
 
 interface Props {
-    label: string;
+    label: string
+    readOnly?: boolean
+    handleDate: (emit: { label: string; date: Date | undefined }) => void
 }
 
-function LabelCalendar({ label }: Props) {
-    const [date, setDate] = useState<Date>();
+function LabelCalendar({ label, readOnly, handleDate }: Props) {
+    const [date, setDate] = useState<Date>()
+
+    useEffect(() => {
+        const emit = {
+            label,
+            date,
+        }
+        handleDate(emit)
+    }, [date])
 
     return (
         <div className={styles.container}>
@@ -22,17 +32,19 @@ function LabelCalendar({ label }: Props) {
             {/* DATE PICKER UI */}
             <Popover>
                 <PopoverTrigger asChild>
-                    <Button variant={"outline"} className={cn("w-[200px] justify-start text-left font-normal", !date && "text-muted-foreground")}>
-                        <CalendarIcon className="mr-2 h-4 w-4" />
-                        {date ? format(date, "PPP") : <span>Pick a date</span>}
+                    <Button variant={'outline'} className={cn('w-[200px] justify-start text-left font-normal', !date && 'text-muted-foreground')}>
+                        <CalendarIcon className='mr-2 h-4 w-4' />
+                        {date ? format(date, 'PPP') : <span>Pick a date</span>}
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0">
-                    <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
-                </PopoverContent>
+                {!readOnly && (
+                    <PopoverContent className='w-auto p-0'>
+                        <Calendar mode='single' selected={date} onSelect={setDate} initialFocus />
+                    </PopoverContent>
+                )}
             </Popover>
         </div>
-    );
+    )
 }
 
-export default LabelCalendar;
+export default LabelCalendar

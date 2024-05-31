@@ -5,16 +5,6 @@ import { Button } from '@/components/ui/button'
 import styles from './page.module.scss'
 
 function Home() {
-    // const setNewView = async () => {
-    //     const { data, error } = await supabase.from('views').insert({
-    //         title: 'random name',
-    //     })
-
-    //     if (data) console.log(data)
-    //     if (error) console.log(error)
-    // }
-    // setNewView()
-
     const router = useRouter()
 
     return (
