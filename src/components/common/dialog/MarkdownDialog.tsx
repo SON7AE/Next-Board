@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import MDEditor from '@uiw/react-md-editor'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
@@ -11,6 +11,7 @@ import LabelCalendar from '@/components/common/calendar/LabelCalendar'
 import styles from './MarkdownDialog.module.scss'
 
 function MarkdownDialog() {
+    const [open, setOpen] = useState<boolean>(false)
     const [contents, setContents] = useState<string | undefined>('**Hello world!!!**')
     const [startDate, setStartDate] = useState<Date | undefined>()
     const [endDate, setEndDate] = useState<Date | undefined>()
@@ -22,30 +23,40 @@ function MarkdownDialog() {
     }
 
     // Supabase에 저장
-    const save = async () => {
-        // Required Params
-        let params = {
-            startData: startDate,
-            endDate: endDate,
-            contents: contents,
-        }
-
-        const { data, error, status } = await supabase.from('views').insert({
-            board_contents: params,
-        })
-
-        if (error) console.log(error)
-        if (status === 201) {
+    const onSubmit = async () => {
+        if (!startDate || !endDate || !contents) {
             toast({
-                description: '작성한 데이터가 Supabase에 올바르게 저장되었습니다.',
+                variant: 'destructive',
+                title: '기입되지 않은 데이터가 있습니다.',
+                description: '날짜 혹은 콘텐츠 데이터를 작성해주셔야 등록이 가능합니다!',
             })
+            return
+        } else {
+            // Required Params
+            let params = {
+                startData: startDate,
+                endDate: endDate,
+                contents: contents,
+            }
+
+            const { data, error, status } = await supabase.from('views').insert({
+                board_contents: params,
+            })
+
+            if (error) console.log(error)
+            if (status === 201) {
+                setOpen(false)
+                toast({
+                    description: '작성한 데이터가 Supabase에 올바르게 저장되었습니다.',
+                })
+            }
         }
     }
 
     return (
-        <Dialog>
-            <DialogTrigger>
-                <span className='font-normal text-gray-400 hover:text-gray-500'>Add Contents</span>
+        <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+                <span className='font-normal text-gray-400 hover:text-gray-500 cursor-pointer'>Add Contents</span>
             </DialogTrigger>
             <DialogContent className='max-w-fit'>
                 <DialogHeader>
@@ -63,15 +74,19 @@ function MarkdownDialog() {
                     <div data-color-mode='light' className={styles.dialog__markdown}>
                         <MDEditor value={contents} height={100 + '%'} onChange={setContents} />
                     </div>
+                </DialogHeader>
+                <DialogFooter>
                     <div className={styles.dialog__buttonBox}>
-                        <Button variant='ghost' className='font-normal text-gray-400 hover:bg-gray-50 hover:text-gray-500'>
-                            Cancel
-                        </Button>
-                        <Button className='font-normal border-orange-500 bg-orange-400 text-white hover:bg-oragne-400 hover:text-white' onClick={save}>
+                        <DialogClose asChild>
+                            <Button variant='ghost' className='font-normal text-gray-400 hover:bg-gray-50 hover:text-gray-500'>
+                                Cancel
+                            </Button>
+                        </DialogClose>
+                        <Button type='submit' className='font-normal border-orange-500 bg-orange-400 text-white hover:bg-oragne-400 hover:text-white' onClick={onSubmit}>
                             Done
                         </Button>
                     </div>
-                </DialogHeader>
+                </DialogFooter>
             </DialogContent>
         </Dialog>
     )
