@@ -23,7 +23,7 @@ interface Todo {
 
 function CreatePage() {
     // 헤더 데이터
-    const [progress, setProgress] = useState<number>(0);
+    const [progress, setProgress] = useState<number>(50);
     const [startDate, setStartDate] = useState<Date | undefined>();
     const [endDate, setEndDate] = useState<Date | undefined>();
 
@@ -67,7 +67,7 @@ function CreatePage() {
     useEffect(() => {
         fetchData();
 
-        const timer = setTimeout(() => setProgress(66), 500);
+        const timer = setTimeout(() => setProgress(progress), 500);
         return () => clearTimeout(timer);
     }, []);
 
