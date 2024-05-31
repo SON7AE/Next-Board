@@ -1,4 +1,4 @@
-// File: /Users/sonjae/Desktop/Next-Board/src/app/create/page.tsx
+// File: /Users/marco/Desktop/YouTube_Next/src/app/create/page.tsx
 import * as entry from '../../../../src/app/create/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
