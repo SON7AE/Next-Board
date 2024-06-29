@@ -1,3 +1,147 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/app/create/page.module.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.page_container__UU7jI {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 920px;
+  height: 100vh;
+  background-color: #f9f9f9;
+  border-right: 1px solid #e6e6e6;
+}
+.page_container__header__DB2oJ {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+  background-color: #ffffff;
+}
+.page_container__header__contents__m0F3I {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 28px;
+  margin-top: 68px;
+}
+.page_container__header__contents__m0F3I .page_input__ZYb69 {
+  font-size: 36px;
+  font-weight: 700;
+  outline: none;
+}
+.page_container__header__contents__m0F3I .page_input__ZYb69::placeholder {
+  color: #c4c4c4;
+}
+.page_container__header__contents__m0F3I .page_progressBar__7AYZL {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin: 8px 0 16px 0;
+}
+.page_container__header__contents__m0F3I .page_progressBar__status__obDpq {
+  color: #6d6d6d;
+}
+.page_container__header__contents__m0F3I .page_calendarBox__AMEMM {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page_container__header__contents__m0F3I .page_calendarBox__calendar__8UVXT {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.page_container__body__ykzLX {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 250px);
+  padding: 28px 16px;
+}
+.page_container__body__infoBox__o3WSD {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page_container__body__infoBox__o3WSD .page_title__TplOy {
+  font-size: 24px;
+  font-weight: 700;
+  color: #454545;
+}
+.page_container__body__infoBox__o3WSD .page_subTitle__GKw73 {
+  margin: 14px 0 28px 0;
+  font-size: 18px;
+  color: #454545;
+}
+.page_container__body__infoBox__o3WSD .page_button__aK5dS {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/components/common/board/BasicBoard.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.BasicBoard_container__uhWkZ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+}
+.BasicBoard_container__header__A3hTG {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.BasicBoard_container__header__titleBox__J1bp6 {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 8px;
+}
+.BasicBoard_container__header__titleBox__J1bp6 .BasicBoard_title__rdvhb {
+  width: 100%;
+  font-weight: 500;
+  font-size: 24px;
+  color: #454545;
+}
+.BasicBoard_container__header__titleBox__J1bp6 .BasicBoard_title__rdvhb::placeholder {
+  font-weight: 500;
+  color: #bdbdbd;
+}
+.BasicBoard_container__body__kAgIL {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 24px 0 14px 0;
+}
+.BasicBoard_container__body__calendarBox__oioT9 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.BasicBoard_container__footer__CMQth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 14px;
+  border-top: 1px solid #bdbdbd;
+}
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/components/common/calendar/LabelCalendar.module.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -1479,12 +1623,6 @@ body[data-color-mode*='light'] {
   gap: 16px;
   padding-top: 16px;
 }
-.MarkdownDialog_dialog__line__N_rvM {
-  width: 45vw;
-  height: 1px;
-  margin: 16px 0 12px 0 !important;
-  background-color: #d7d7d7;
-}
 .MarkdownDialog_dialog__markdown__9xJk_ {
   width: 45vw;
   height: 50vh;
@@ -1496,200 +1634,4 @@ body[data-color-mode*='light'] {
   width: 45vw;
   gap: 16px;
   padding-top: 12px;
-}
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/components/common/board/BasicBoard.module.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.BasicBoard_container__uhWkZ {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 4px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-}
-.BasicBoard_container__header__A3hTG {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-.BasicBoard_container__header__titleBox__J1bp6 {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  gap: 16px;
-}
-.BasicBoard_container__header__titleBox__J1bp6 .BasicBoard_title__rdvhb {
-  width: 100%;
-  font-weight: 500;
-  font-size: 24px;
-  color: #454545;
-}
-.BasicBoard_container__header__titleBox__J1bp6 .BasicBoard_title__rdvhb::placeholder {
-  font-weight: 500;
-  color: #bdbdbd;
-}
-.BasicBoard_container__body__kAgIL {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin: 24px 0 14px 0;
-}
-.BasicBoard_container__body__calendarBox__oioT9 {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.BasicBoard_container__footer__CMQth {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding-top: 14px;
-  border-top: 1px solid #ededed;
-}
-
-.BasicBoard_dialog__titleBox__nvLwL {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 45vw;
-  gap: 8px;
-}
-.BasicBoard_dialog__titleBox__title__P2bED {
-  font-weight: 500;
-  font-size: 24px;
-  color: #303030;
-}
-.BasicBoard_dialog__calendarBox__CPdLh {
-  display: flex;
-  align-items: center;
-  width: 45vw;
-  gap: 16px;
-  padding: 16px 0 20px 0;
-}
-.BasicBoard_dialog__line__gCuN9 {
-  width: 45vw;
-  height: 1px;
-  background-color: #d7d7d7;
-}
-.BasicBoard_dialog__markdown__YZe7c {
-  width: 45vw;
-  height: 50vh;
-}
-.BasicBoard_dialog__buttonBox__a8tEz {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 45vw;
-  gap: 16px;
-}
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/app/create/page.module.scss ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-@charset "UTF-8";
-.page_container__UU7jI {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 920px;
-  height: 100%;
-  background-color: #f9f9f9;
-  border-right: 1px solid #e6e6e6;
-}
-.page_container__header__DB2oJ {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  width: 100%;
-  background-color: #ffffff;
-}
-.page_container__header__contents__m0F3I {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 20px 28px;
-  margin-top: 68px;
-}
-.page_container__header__contents__m0F3I .page_input__ZYb69 {
-  font-size: 36px;
-  font-weight: 700;
-  outline: none;
-}
-.page_container__header__contents__m0F3I .page_input__ZYb69::placeholder {
-  color: #c4c4c4;
-}
-.page_container__header__contents__m0F3I .page_progressBar__7AYZL {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
-  margin: 8px 0 16px 0;
-}
-.page_container__header__contents__m0F3I .page_progressBar__status__obDpq {
-  color: #6d6d6d;
-}
-.page_container__header__contents__m0F3I .page_calendarBox__AMEMM {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-.page_container__header__contents__m0F3I .page_calendarBox__calendar__8UVXT {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.page_container__body__ykzLX {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: calc(100% - 250px);
-  padding: 28px 16px;
-}
-.page_container__body__infoBox__o3WSD {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.page_container__body__infoBox__o3WSD .page_title__TplOy {
-  font-size: 24px;
-  font-weight: 700;
-  color: #454545;
-}
-.page_container__body__infoBox__o3WSD .page_subTitle__GKw73 {
-  margin: 14px 0 28px 0;
-  font-size: 18px;
-  color: #454545;
-}
-.page_container__body__infoBox__o3WSD .page_button__aK5dS {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 74px;
-  height: 74px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-.page_container__body__isBoard__Dcbti {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  padding: 2px;
-  gap: 16px;
-  overflow-y: scroll;
-  -ms-overflow-style: none; /* 인터넷 익스플로러 */
-  scrollbar-width: none; /* 파이어폭스 */
-}
-.page_container__body__isBoard__Dcbti:-webkit-scrollbar {
-  display: none;
 }
