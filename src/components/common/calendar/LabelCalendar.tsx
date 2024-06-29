@@ -1,42 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+// CSS
 import styles from "./LabelCalendar.module.scss";
-
-interface Emit {
-    label: string;
-    date: Date | undefined;
-}
 
 interface Props {
     label: string;
-    data?: Date;
-    readOnly?: boolean;
-    handleDate?: (emit: Emit) => void | undefined;
+    readonly?: boolean;
 }
 
-function LabelCalendar({ label, data, readOnly, handleDate }: Props) {
+function LabelCalendar({ label, readonly }: Props) {
     const [date, setDate] = useState<Date>();
-
-    useEffect(() => {
-        if (data) setDate(data);
-        const emit = {
-            label,
-            date,
-        };
-        handleDate?.(emit);
-    }, [date]);
 
     return (
         <div className={styles.container}>
             <span className={styles.container__label}>{label}</span>
-            {/* DATE PICKER UI */}
+            {/* Shadcn UI - Calendar */}
             <Popover>
                 <PopoverTrigger asChild>
                     <Button variant={"outline"} className={cn("w-[200px] justify-start text-left font-normal", !date && "text-muted-foreground")}>
@@ -44,7 +30,7 @@ function LabelCalendar({ label, data, readOnly, handleDate }: Props) {
                         {date ? format(date, "PPP") : <span>Pick a date</span>}
                     </Button>
                 </PopoverTrigger>
-                {!readOnly && (
+                {!readonly && (
                     <PopoverContent className="w-auto p-0">
                         <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
                     </PopoverContent>
