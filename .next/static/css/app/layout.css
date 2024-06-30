@@ -1040,6 +1040,9 @@ video {
 .overflow-hidden {
   overflow: hidden;
 }
+.overflow-scroll {
+  overflow: scroll;
+}
 .whitespace-nowrap {
   white-space: nowrap;
 }

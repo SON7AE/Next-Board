@@ -111,7 +111,6 @@ function page() {
     // Supabase에 기존에 생성된 페이지가 있는지 없는지 확인
     const getData = async () => {
         let { data: todos, error } = await supabase.from("todos").select("*");
-        console.log(todos);
 
         if (todos !== null) {
             todos.forEach((item: Todo) => {
@@ -171,7 +170,7 @@ function page() {
                         </div>
                     </div>
                 ) : (
-                    <div className="flex flex-col items-center justify-start w-full h-full gap-4">
+                    <div className={styles.container__body__boards}>
                         {boards?.contents.map((board: BoardContent) => {
                             return <BasicBoard key={board.boardId} />;
                         })}
