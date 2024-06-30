@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { supabase } from "@/utils/supabase";
+import { nanoid } from "nanoid";
 // COMPONENTS
 import LabelCalendar from "@/components/common/calendar/LabelCalendar";
 import BasicBoard from "@/components/common/board/BasicBoard";
@@ -15,7 +16,15 @@ import { ChevronLeft } from "lucide-react";
 // CSS
 import styles from "./page.module.scss";
 
+interface Todo {
+    id: number;
+    title: string;
+    start_date: string;
+    end_date: string;
+    contents: BoardContent[];
+}
 interface BoardContent {
+    boardId: string | number;
     isCompleted: boolean;
     title: string;
     stateDate: string;
@@ -26,46 +35,75 @@ interface BoardContent {
 function page() {
     const router = useRouter();
     const pathname = usePathname();
-    const [todo, setTodo] = useState<any>();
-    const [boards, setBoards] = useState<BoardContent[]>([]);
+    const [boards, setBoards] = useState<Todo>();
     const [startDate, setStartDate] = useState<Date | undefined>(new Date());
     const [endDate, setEndDate] = useState<Date | undefined>(new Date());
     const { toast } = useToast();
 
     const insertRowData = async (contents: BoardContent[]) => {
         // Supabase 데이터베이스에 연동
+        if (boards?.contents) {
+            const { data, error, status } = await supabase.from("todos").update({ contents: contents }).eq("id", pathname.split("/")[2]).select();
 
-        const { data, error, status } = await supabase
-            .from("todos")
-            .upsert({ id: pathname.split("/")[2], contents: JSON.stringify(contents) })
-            .select();
+            console.log(status);
+            if (error) {
+                console.log(error);
+                toast({
+                    title: "에러가 발생했습니다.",
+                    description: "콘솔 창에 출력된 에러를 확인하세요.",
+                });
+            }
+            if (status === 200) {
+                toast({
+                    title: "추가 완료!",
+                    description: "새로운 TO DO BOARD가 추가 되었습니다.",
+                });
 
-        if (error) {
-            console.log(error);
-            toast({
-                title: "에러가 발생했습니다.",
-                description: "콘솔 창에 출력된 에러를 확인하세요.",
-            });
-        }
-        if (status === 201) {
-            toast({
-                title: "생성 완료!",
-                description: "새로운 TO DO BOARD가 생성되었습니다.",
-            });
+                getData();
+            }
+        } else {
+            const { data, error, status } = await supabase.from("todos").insert({ contents: contents }).eq("id", pathname.split("/")[2]).select();
+
+            console.log(status);
+
+            if (error) {
+                console.log(error);
+                toast({
+                    title: "에러가 발생했습니다.",
+                    description: "콘솔 창에 출력된 에러를 확인하세요.",
+                });
+            }
+            if (status === 201) {
+                toast({
+                    title: "생성 완료!",
+                    description: "새로운 TO DO BOARD가 생성 되었습니다.",
+                });
+
+                getData();
+            }
         }
     };
     const createBoard = () => {
-        const newBoards = [];
+        console.log(boards);
+
+        let newContents: BoardContent[] = [];
         const boardContent = {
+            boardId: nanoid(),
             isCompleted: false,
             title: "",
             stateDate: "",
             endDate: "",
             content: "",
         };
-        newBoards.push(boardContent);
-        setBoards(newBoards);
-        insertRowData(newBoards);
+
+        if (boards && boards.contents.length > 0) {
+            newContents = [...boards.contents];
+            newContents.push(boardContent);
+            insertRowData(newContents);
+        } else if (boards && boards.contents.length === 0) {
+            newContents.push(boardContent);
+            insertRowData(newContents);
+        }
     };
 
     // ====================================================================================================
@@ -76,16 +114,13 @@ function page() {
         console.log(todos);
 
         if (todos !== null) {
-            let res = {};
-
-            todos.forEach((item: any) => {
+            todos.forEach((item: Todo) => {
                 if (item.id === Number(pathname.split("/")[2])) {
-                    res = item;
+                    console.log(item);
+                    setBoards(item);
                 }
             });
-            setTodo(res);
         }
-        return todos;
     };
 
     useEffect(() => {
@@ -125,7 +160,7 @@ function page() {
                 </div>
             </header>
             <main className={styles.container__body}>
-                {!boards ? (
+                {boards?.contents.length === 0 ? (
                     <div className="flex items-center justify-center w-full h-full">
                         <div className={styles.container__body__infoBox}>
                             <span className={styles.title}>There is no board yet.</span>
@@ -137,8 +172,8 @@ function page() {
                     </div>
                 ) : (
                     <div className="flex flex-col items-center justify-start w-full h-full gap-4">
-                        {boards.map((board: BoardContent) => {
-                            return <BasicBoard key={board.title} />;
+                        {boards?.contents.map((board: BoardContent) => {
+                            return <BasicBoard key={board.boardId} />;
                         })}
                     </div>
                 )}
