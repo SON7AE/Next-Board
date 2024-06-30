@@ -18,6 +18,8 @@ import styles from "./MarkdownDialog.module.scss";
 function MarkdownDialog() {
     const [open, setOpen] = useState<boolean>(false);
     const [title, setTitle] = useState<string>("");
+    const [startDate, setStartDate] = useState<Date | undefined>(new Date());
+    const [endDate, setEndDate] = useState<Date | undefined>(new Date());
     const [content, setContent] = useState<string | undefined>("**Hello, World!!**");
     const { toast } = useToast();
 
@@ -27,7 +29,7 @@ function MarkdownDialog() {
     const onSubmit = async () => {
         console.log("함수 호출");
 
-        if (!title || !content) {
+        if (!title || !startDate || !endDate || !content) {
             toast({
                 title: "기입되지 않은 데이터(값)가 있습니다.",
                 description: "제목, 날짜 혹은 콘텐츠 값을 모두 작성해주세요.",
@@ -37,7 +39,18 @@ function MarkdownDialog() {
             // Supabase 데이터베이스에 연동
             const { data, error, status } = await supabase
                 .from("todos")
-                .insert([{ title: title, content: content }])
+                .insert([
+                    {
+                        contents: [
+                            {
+                                title: title,
+                                start_date: startDate,
+                                end_date: endDate,
+                                content: content,
+                            },
+                        ],
+                    },
+                ])
                 .select();
 
             if (error) {
@@ -55,7 +68,6 @@ function MarkdownDialog() {
 
                 // 등록 후 조건 초기화
                 setOpen(false);
-                setTitle("");
             }
         }
     };
@@ -82,8 +94,8 @@ function MarkdownDialog() {
                         </div>
                     </DialogTitle>
                     <div className={styles.dialog__calendarBox}>
-                        <LabelCalendar label="From" />
-                        <LabelCalendar label="To" />
+                        <LabelCalendar label="From" handleDate={setStartDate} />
+                        <LabelCalendar label="To" handleDate={setEndDate} />
                     </div>
                     <Separator />
                     <div className={styles.dialog__markdown}>

@@ -12,11 +12,11 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/create/page": [
+    "/create/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/create/page.css",
-      "static/chunks/app/create/page.js"
+      "static/css/app/create/[id]/page.css",
+      "static/chunks/app/create/[id]/page.js"
     ]
   }
 }

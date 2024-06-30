@@ -229,6 +229,11 @@
   font-size: 14px;
   color: #a6a6a6;
 }
+.SideNavigation_container__todos__list__l6c8r {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 /*!********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./src/styles/globals.css ***!
   \********************************************************************************************************************************************************************************************************************************************************************/
@@ -822,6 +827,9 @@ video {
 .left-1 {
   left: 0.25rem;
 }
+.left-7 {
+  left: 1.75rem;
+}
 .left-\[50\%\] {
   left: 50%;
 }
@@ -843,6 +851,9 @@ video {
 .top-4 {
   top: 1rem;
 }
+.top-6 {
+  top: 1.5rem;
+}
 .top-\[50\%\] {
   top: 50%;
 }
@@ -851,6 +862,9 @@ video {
 }
 .z-\[100\] {
   z-index: 100;
+}
+.mr-1 {
+  margin-right: 0.25rem;
 }
 .mr-2 {
   margin-right: 0.5rem;
@@ -869,6 +883,9 @@ video {
 }
 .grid {
   display: grid;
+}
+.contents {
+  display: contents;
 }
 .h-10 {
   height: 2.5rem;
@@ -989,6 +1006,9 @@ video {
 .gap-1 {
   gap: 0.25rem;
 }
+.gap-2 {
+  gap: 0.5rem;
+}
 .gap-4 {
   gap: 1rem;
 }
@@ -1051,6 +1071,10 @@ video {
 }
 .border-primary {
   border-color: hsl(var(--primary));
+}
+.bg-\[\#f5f5f4\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 244 / var(--tw-bg-opacity));
 }
 .bg-accent {
   background-color: hsl(var(--accent));
@@ -1174,6 +1198,10 @@ video {
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+.text-green-400 {
+  --tw-text-opacity: 1;
+  color: rgb(74 222 128 / var(--tw-text-opacity));
 }
 .text-muted-foreground {
   color: hsl(var(--muted-foreground));

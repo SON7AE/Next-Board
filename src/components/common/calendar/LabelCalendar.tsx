@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 
@@ -14,10 +14,15 @@ import styles from "./LabelCalendar.module.scss";
 interface Props {
     label: string;
     readonly?: boolean;
+    handleDate: (date: Date | undefined) => void;
 }
 
-function LabelCalendar({ label, readonly }: Props) {
-    const [date, setDate] = useState<Date>();
+function LabelCalendar({ label, readonly, handleDate }: Props) {
+    const [date, setDate] = useState<Date | undefined>(new Date());
+
+    useEffect(() => {
+        handleDate(date);
+    }, [date]);
 
     return (
         <div className={styles.container}>
