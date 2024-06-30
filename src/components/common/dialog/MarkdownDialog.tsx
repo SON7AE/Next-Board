@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/components/ui/use-toast";
-
 // CSS
 import styles from "./MarkdownDialog.module.scss";
 
@@ -55,7 +54,6 @@ function MarkdownDialog() {
 
                 // 등록 후 조건 초기화
                 setOpen(false);
-                setTitle("");
             }
         }
     };
