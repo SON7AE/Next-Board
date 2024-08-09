@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { supabase } from "@/utils/supabase";
 // Components
 import LabelCalendar from "../calendar/LabelCalendar";
@@ -14,9 +15,29 @@ import { useToast } from "@/components/ui/use-toast";
 // CSS
 import styles from "./MarkdownDialog.module.scss";
 
+interface Todo {
+    id: number;
+    title: string;
+    start_date: string | Date;
+    end_date: string | Date;
+    contents: BoardContent[];
+}
+
+interface BoardContent {
+    boardId: string | number;
+    isCompleted: boolean;
+    title: string;
+    startDate: string | Date;
+    endDate: string | Date;
+    content: string;
+}
+
 function MarkdownDialog() {
+    const pathname = usePathname();
     const [open, setOpen] = useState<boolean>(false);
     const [title, setTitle] = useState<string>("");
+    const [startDate, setStartDate] = useState<Date | undefined>(new Date());
+    const [endDate, setEndDate] = useState<Date | undefined>(new Date());
     const [content, setContent] = useState<string | undefined>("**Hello, World!!**");
     const { toast } = useToast();
 
@@ -26,34 +47,55 @@ function MarkdownDialog() {
     const onSubmit = async () => {
         console.log("함수 호출");
 
-        if (!title || !content) {
+        if (!title || !startDate || !endDate || !content) {
             toast({
                 title: "기입되지 않은 데이터(값)가 있습니다.",
                 description: "제목, 날짜 혹은 콘텐츠 값을 모두 작성해주세요.",
             });
             return;
         } else {
-            // Supabase 데이터베이스에 연동
-            const { data, error, status } = await supabase
-                .from("todos")
-                .insert([{ title: title, content: content }])
-                .select();
+            // 해당 Board에 대한 데이터만 수정이 되도록 한다.
+            let { data: todos } = await supabase.from("todos").select("*");
 
-            if (error) {
-                console.log(error);
-                toast({
-                    title: "에러가 발생했습니다.",
-                    description: "콘솔 창에 출력된 에러를 확인하세요.",
-                });
-            }
-            if (status === 201) {
-                toast({
-                    title: "생성 완료!",
-                    description: "작성한 글이 Supabase에 올바르게 저장되었습니다.",
-                });
+            if (todos !== null) {
+                todos.forEach(async (item: Todo) => {
+                    if (item.id === Number(pathname.split("/")[2])) {
+                        item.contents.forEach((element: BoardContent) => {
+                            if (element.boardId === "NApkEaS1xibnmifHa3rzS") {
+                                element.title = title;
+                                element.content = content;
+                                element.startDate = startDate;
+                                element.endDate = endDate;
+                            } else {
+                                element.title = element.title;
+                                element.content = element.content;
+                                element.startDate = element.startDate;
+                                element.endDate = element.endDate;
+                            }
+                        });
+                        // Supabase 데이터베이스에 연동
+                        const { data, error, status } = await supabase.from("todos").update({ contents: item.contents }).eq("id", pathname.split("/")[2]);
 
-                // 등록 후 조건 초기화
-                setOpen(false);
+                        if (error) {
+                            console.log(error);
+                            toast({
+                                title: "에러가 발생했습니다.",
+                                description: "콘솔 창에 출력된 에러를 확인하세요.",
+                            });
+                        }
+                        if (status === 204) {
+                            toast({
+                                title: "수정 완료!",
+                                description: "작성한 글이 Supabase에 올바르게 저장되었습니다.",
+                            });
+
+                            // 등록 후 조건 초기화
+                            setOpen(false);
+                        }
+                    }
+                });
+            } else {
+                return;
             }
         }
     };
